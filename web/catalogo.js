@@ -1,7 +1,9 @@
 /**
 * Web application
 */
-const apiUrl = 'https://CHANGE_API_URL.us-south.apigw.appdomain.cloud/catalogo';
+const apiUrl = 'https://4b74479b.us-south.apigw.appdomain.cloud/catalogo';
+const apiUrl_appid = 'https://4b74479b.us-south.apigw.appdomain.cloud/administrar';
+
 const catalogo = {
 // obtiene los articulos en la bd catalogo
     get() {
@@ -16,7 +18,7 @@ const catalogo = {
         console.log('Enviando', nombre, descripcion, fotoUrl)
         return $.ajax({
         type: 'POST',
-        url: `${apiUrl}/articulos`,
+        url: `${apiUrl_appid}/articulos`,
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
             nombre,
@@ -31,7 +33,7 @@ const catalogo = {
         console.log('Enviando', id, rev, nombre, descripcion, fotoUrl)
         return $.ajax({
         type: 'PUT',
-        url: `${apiUrl}/articulos`,
+        url: `${apiUrl_appid}/articulos`,
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
             id,
@@ -48,7 +50,7 @@ const catalogo = {
         console.log('Enviando', id, rev)
         return $.ajax({
         type: 'DELETE',
-        url: `${apiUrl}/articulos`,
+        url: `${apiUrl_appid}/articulos`,
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
             id,
@@ -94,7 +96,7 @@ function configurarCatalogo() {
     });
 }
 
-function configurarAdministrar(){
+function configurarNuevo(){
     // intercepta el click en el submit form
     // redirige a catalogo
     $(document).on('submit', '#addArticulo', function(e) {
@@ -106,7 +108,7 @@ function configurarAdministrar(){
             $('#fotoUrl').val().trim()
         ).done(function(result) {
             // redirige a catalogo
-            window.location.replace('index.html#')
+            window.location.replace('administrar.html#')
         }).error(function(error) {
             console.log(error);
         });
@@ -144,7 +146,7 @@ function configurarEdicion(){
             $('#fotoUrl').val().trim()
         ).done(function(result) {
             // redirige a catalogo
-            window.location.replace('index.html#')
+            window.location.replace('administrar.html#')
         }).error(function(error) {
             console.log(error);
         });
