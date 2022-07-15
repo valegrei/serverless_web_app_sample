@@ -1,8 +1,7 @@
 /**
 * Web application
 */
-const apiUrl = 'https://4b74479b.us-south.apigw.appdomain.cloud/catalogo';
-const apiUrl_appid = 'https://4b74479b.us-south.apigw.appdomain.cloud/administrar';
+const apiUrl = 'https://change_api_url.us-south.apigw.appdomain.cloud/catalogo';
 
 const catalogo = {
 // obtiene los articulos en la bd catalogo
@@ -18,7 +17,7 @@ const catalogo = {
         console.log('Enviando', nombre, descripcion, fotoUrl)
         return $.ajax({
         type: 'POST',
-        url: `${apiUrl_appid}/articulos`,
+        url: `${apiUrl}/articulos`,
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
             nombre,
@@ -33,7 +32,7 @@ const catalogo = {
         console.log('Enviando', id, rev, nombre, descripcion, fotoUrl)
         return $.ajax({
         type: 'PUT',
-        url: `${apiUrl_appid}/articulos`,
+        url: `${apiUrl}/articulos`,
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
             id,
@@ -50,7 +49,7 @@ const catalogo = {
         console.log('Enviando', id, rev)
         return $.ajax({
         type: 'DELETE',
-        url: `${apiUrl_appid}/articulos`,
+        url: `${apiUrl}/articulos`,
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
             id,
